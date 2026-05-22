@@ -15,9 +15,15 @@ Follow these steps exactly:
 - Check whether `docs/project/` already exists. Note which required subfolders and files are missing.
 
 ## 3. Copy methodology (always overwrite)
-Copy from PM Tools into the target, overwriting any existing versions:
-- `docs/_methodology/` → target `docs/_methodology/`
-- `.claude/commands/` → target `.claude/commands/`
+Fetch the latest methodology from GitHub and copy into the target:
+
+1. Run `git clone --depth 1 https://github.com/TheEduardoConde/pm_metholody.git <temp-dir>` into a temporary folder
+2. Note the commit SHA (`git -C <temp-dir> rev-parse HEAD`) — include this in the final report
+3. Copy into the target, overwriting any existing versions:
+   - `<temp-dir>/` (all `.md` files and subdirs) → target `docs/_methodology/`
+   - `<temp-dir>/.claude/commands/` → target `.claude/commands/`
+   - `<temp-dir>/VERSION` → target `docs/_methodology/VERSION`
+4. Delete the temp folder when done
 
 ## 4. Scaffold project data (only create missing files — never overwrite existing)
 Create missing items only:
